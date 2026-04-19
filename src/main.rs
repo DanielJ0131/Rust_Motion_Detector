@@ -18,7 +18,7 @@ use crate::led::blink;
 
 fn main() -> Result<()> {
     esp_idf_svc::sys::link_patches();
-    
+
     let peripherals = Peripherals::take()?;
     let mut led = PinDriver::output(peripherals.pins.gpio48)?;
 
@@ -29,10 +29,10 @@ fn main() -> Result<()> {
     // --- STEP 2: INIT SERVICES ---
     let sys_loop = EspSystemEventLoop::take()?;
     let nvs = EspDefaultNvsPartition::take()?;
-    
+
     // Fixed: Passing Pull directly into the constructor
-    let pir = PinDriver::input(peripherals.pins.gpio5, Pull::Down)?; 
-    
+    let pir = PinDriver::input(peripherals.pins.gpio5, Pull::Down)?;
+
     blink(&mut led, 1, 300);
 
     // --- STEP 3 & 4: START WIFI ---
@@ -72,7 +72,7 @@ fn main() -> Result<()> {
                 last_trigger_time = Some(now);
             }
         }
-        
+
         last_pir_state = current_pir_state;
         FreeRtos::delay_ms(100);
     }

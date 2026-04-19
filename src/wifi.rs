@@ -14,7 +14,7 @@ use crate::config::{WIFI_PASS, WIFI_SSID};
 use crate::led::blink;
 
 pub fn init_and_connect(
-    modem: Modem<'static>, 
+    modem: Modem<'static>,
     sys_loop: EspSystemEventLoop,
     nvs: EspDefaultNvsPartition,
     led: &mut PinDriver<'_, Output>,

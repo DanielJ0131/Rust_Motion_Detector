@@ -1,4 +1,5 @@
-# 🦀 Rust Motion Detector (ESP32-S3-Nano (ESP32-S3R8))
+# 🦀 Rust Motion Detector (ESP32-S3-Nano)
+## Compatible with ESP32-S3R8
 
 An asynchronous motion detection system built with **Rust** and **ESP-IDF**. This project uses a PIR sensor to detect movement, provides visual feedback via the onboard LED, and sends an HTTP GET request to a remote server (e.g., a Raspberry Pi) to trigger an external event.
 

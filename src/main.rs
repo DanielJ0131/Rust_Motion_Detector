@@ -16,13 +16,28 @@ use crate::config::COOLDOWN;
 use crate::http::HttpClient;
 use crate::led::blink;
 
+/// Entry point for the Rust Motion Detector application.
+///
+/// This function initializes hardware peripherals, configures Wi-Fi, sets up the PIR sensor and LED,
+/// and enters the main event loop for motion detection. When motion is detected, it sends an HTTP GET
+/// request to a remote server and provides visual feedback via the onboard LED. Cooldown logic prevents
+/// repeated triggers within a short window.
+///
+/// # Steps
+/// 1. Boot indication via LED.
+/// 2. Initialize system services and peripherals.
+/// 3. Connect to Wi-Fi and indicate status via LED.
+/// 4. Main loop: poll PIR sensor, trigger HTTP request on motion, and handle LED feedback.
+///
+/// # Errors
+/// Returns an error if hardware initialization or Wi-Fi connection fails.
 fn main() -> Result<()> {
     esp_idf_svc::sys::link_patches();
 
     let peripherals = Peripherals::take()?;
     let mut led = PinDriver::output(peripherals.pins.gpio48)?;
 
-    // --- STEP 1: BOOTED ---
+    // --- STEP 1: BOOT ---
     blink(&mut led, 2, 70);
     FreeRtos::delay_ms(4000);
 
@@ -30,7 +45,6 @@ fn main() -> Result<()> {
     let sys_loop = EspSystemEventLoop::take()?;
     let nvs = EspDefaultNvsPartition::take()?;
 
-    // Fixed: Passing Pull directly into the constructor
     let pir = PinDriver::input(peripherals.pins.gpio5, Pull::Down)?;
 
     blink(&mut led, 1, 300);

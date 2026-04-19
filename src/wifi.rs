@@ -13,6 +13,19 @@ use esp_idf_svc::{
 use crate::config::{WIFI_PASS, WIFI_SSID};
 use crate::led::blink;
 
+/// Initializes and connects the ESP32-S3 to a Wi-Fi network.
+///
+/// This function sets up the Wi-Fi driver, configures the client with credentials,
+/// provides visual feedback via the onboard LED, and handles connection retries.
+///
+/// # Arguments
+/// * `modem`    - ESP32 modem peripheral.
+/// * `sys_loop` - System event loop for Wi-Fi events.
+/// * `nvs`      - Non-volatile storage partition for Wi-Fi credentials.
+/// * `led`      - Mutable reference to the status LED pin driver.
+///
+/// # Returns
+/// * `Result<EspWifi<'static>>` - The initialized and connected Wi-Fi driver, or an error.
 pub fn init_and_connect(
     modem: Modem<'static>,
     sys_loop: EspSystemEventLoop,

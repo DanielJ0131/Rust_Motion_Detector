@@ -1,0 +1,27 @@
+[package]
+name = "motion_detector"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+rust-version = "1.82"
+
+[[bin]]
+name = "motion_detector"
+harness = false 
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true
+opt-level = "z"
+
+[dependencies]
+esp-idf-svc = { version = "0.52.1" }
+esp-idf-hal = { version = "0.46.2" }
+anyhow = "1.0.102"
+heapless = "0.9.1"
+embedded-svc = "0.29.0"
+
+[build-dependencies]
+embuild = "0.33"

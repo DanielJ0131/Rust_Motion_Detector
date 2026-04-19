@@ -37,7 +37,7 @@ ESP_IDF_VERSION = "v5.5.3"
 ```
 
 ## 🏗 Installation & Build
-1. Prerequisites
+###  1. Prerequisites
 
 Ensure you have the Xtensa toolchain and linker installed:
 ```bash
@@ -47,7 +47,7 @@ espup install
 cargo install ldproxy
 ```
 
-2. Compilation
+### 2. Compilation
 
 To build and flash the device in one command:
 

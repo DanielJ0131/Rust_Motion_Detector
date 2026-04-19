@@ -78,7 +78,11 @@ The device communicates its state via the LED on GPIO 48:
 ```
 Rust_Motion_Detector/
 ├── src/
-│   └── main.rs         # Core application logic and Wi-Fi management
+│   ├── config.rs       # Configuration management
+│   ├── http.rs         # HTTP notification logic
+│   ├── led.rs          # LED status and patterns
+│   ├── main.rs         # Core application logic and Wi-Fi management
+│   └── wifi.rs         # Wi-Fi connection logic
 ├── .cargo/
 │   └── config.toml     # Target settings and environment variables
 ├── sdkconfig.defaults  # ESP-IDF framework overrides

@@ -75,13 +75,13 @@ The device communicates its state via the LED on GPIO 48:
 
 ## 📂 Project Structure
 
-*    src/main.rs: Core application logic and Wi-Fi management.
+-    src/main.rs: Core application logic and Wi-Fi management.
 
-*    .cargo/config.toml: Target settings and environment variables.
+-    .cargo/config.toml: Target settings and environment variables.
 
-*    sdkconfig.defaults: ESP-IDF framework overrides.
+-    sdkconfig.defaults: ESP-IDF framework overrides.
 
-*    partitions.csv: Flash memory layout for the ESP32-S3.
+-    partitions.csv: Flash memory layout for the ESP32-S3.
 
 ## 📝 License
 

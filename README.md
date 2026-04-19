@@ -75,13 +75,19 @@ The device communicates its state via the LED on GPIO 48:
 
 ## 📂 Project Structure
 
--    src/main.rs: Core application logic and Wi-Fi management.
-
--    .cargo/config.toml: Target settings and environment variables.
-
--    sdkconfig.defaults: ESP-IDF framework overrides.
-
--    partitions.csv: Flash memory layout for the ESP32-S3.
+```
+Rust_Motion_Detector/
+├── src/
+│   └── main.rs         # Core application logic and Wi-Fi management
+├── .cargo/
+│   └── config.toml     # Target settings and environment variables
+├── sdkconfig.defaults  # ESP-IDF framework overrides
+├── partitions.csv      # Flash memory layout for the ESP32-S3
+├── Cargo.toml
+├── build.rs
+├── README.md
+└── LICENSE
+```
 
 ## 📝 License
 
